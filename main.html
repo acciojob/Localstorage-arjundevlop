@@ -20,15 +20,24 @@
       <li>Loading Storage...</li>
     </ul>
     <form class="add-items">
-      <input type="text" name="item" placeholder="Item Name" required>
-      <input type="submit" value="+ Add Item">
+      <input type="text" name="item" placeholder="Item Name" class="input" required>
+      <input type="submit" value="+ Add Item" class="addBtn">
     </form>
   </div>
 
 <script>
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
-  const items = [];
+  const items = document.querySelector('.input');
+	const button = document.querySelector('.addBtn');
+	function addFunc(event){
+    event.preventDefault();
+    var newItem = document.createElement("li");
+    newItem.textContent = items.value;
+    itemsList.appendChild(newItem);
+		
+	}
+	button.addEventListener("click" ,addFunc);
 
 </script>
 
